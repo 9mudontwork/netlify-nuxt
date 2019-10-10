@@ -50,7 +50,8 @@ export default {
   //   }
   // ],
   generate: {
-    fallback: true
+    // fallback: true,
+    devtools: true
   },
   /*
    ** Axios module configuration
