@@ -53,6 +53,12 @@ export default {
     // fallback: true,
     devtools: true
   },
+  vue: {
+    config: {
+      productionTip: false,
+      devtools: true
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
