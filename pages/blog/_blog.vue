@@ -6,6 +6,9 @@
 </template>
 <script>
 export default {
+  created() {
+    console.log(this.$store.state.blogPosts)
+  },
   async asyncData({ params, payload }) {
     if (payload) return { blogPost: payload }
     else
