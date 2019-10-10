@@ -1,3 +1,7 @@
+import Vue from 'vue'
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
 export const state = () => ({
   blogPosts: []
 })
@@ -15,6 +19,7 @@ export const actions = {
       false,
       /\.json$/
     )
+
     let blogPosts = files.keys().map((key) => {
       let res = files(key)
       res.slug = key.slice(2, -5)

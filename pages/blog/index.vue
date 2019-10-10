@@ -1,8 +1,9 @@
 <template>
-  <article>
-    <h1>{{ blogPost.title }}</h1>
-    <div>{{ blogPost.body }}</div>
-  </article>
+  <div>
+    <p v-for="post in blogPosts" :key="post.title" class="post-link">
+      {{ post.title }}
+    </p>
+  </div>
 </template>
 
 <script>
