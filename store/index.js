@@ -18,7 +18,6 @@ export const actions = {
 
     let blogPosts = files.keys().map((key) => {
       let res = files(key)
-      console.log(key)
       res.slug = key.slice(2, -5)
       return res
     })
