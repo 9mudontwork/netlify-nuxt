@@ -40,15 +40,15 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/redirect-module'
+    '@nuxtjs/axios'
+    // '@nuxtjs/redirect-module'
   ],
-  redirect: [
-    {
-      from: '^.*(?<!/)$',
-      to: (from, req) => req.url + '/'
-    }
-  ],
+  // redirect: [
+  //   {
+  //     from: '^.*(?<!/)$',
+  //     to: (from, req) => req.url + '/'
+  //   }
+  // ],
   generate: {
     fallback: true
   },

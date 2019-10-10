@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p v-for="post in blogPosts" :key="post.title">
+    <p v-for="post in blogPosts" :key="post.slug">
       <nuxt-link :to="post.slug">{{ post.title }}</nuxt-link>
     </p>
   </div>
