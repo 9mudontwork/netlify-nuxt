@@ -1,3 +1,12 @@
+const glob = require('glob')
+const path = require('path')
+const dynamicRoutes = getDynamicRoutes([
+  {
+    route: '/blog',
+    jsonPath: 'assets/content/blog/*.json'
+  }
+])
+
 export default {
   mode: 'universal',
   /*
@@ -40,18 +49,19 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
-    // '@nuxtjs/redirect-module'
+    '@nuxtjs/axios',
+    '@nuxtjs/redirect-module'
   ],
-  // redirect: [
-  //   {
-  //     from: '^.*(?<!/)$',
-  //     to: (from, req) => req.url + '/'
-  //   }
-  // ],
+  redirect: [
+    {
+      from: '^.*(?<!/)$',
+      to: (from, req) => req.url + '/'
+    }
+  ],
   generate: {
     // fallback: true,
-    devtools: true
+    devtools: true,
+    route: dynamicRoutes
   },
   vue: {
     config: {
@@ -83,4 +93,18 @@ export default {
       }
     }
   }
+}
+
+function getDynamicRoutes(pathLists) {
+  let paths
+  pathLists.forEach((route) => {
+    paths = [].concat(
+      route.route,
+      glob
+        .sync(route.jsonPath)
+        .map((filepath) => `${route.route}/${path.basename(filepath, '.json')}`)
+    )
+  })
+
+  return paths
 }
