@@ -1,7 +1,3 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex)
-
 export const state = () => ({
   blogPosts: []
 })
@@ -22,9 +18,11 @@ export const actions = {
 
     let blogPosts = files.keys().map((key) => {
       let res = files(key)
+      console.log(key)
       res.slug = key.slice(2, -5)
       return res
     })
+
     await commit('setBlogPosts', blogPosts)
   }
 }
