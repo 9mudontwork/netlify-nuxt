@@ -60,8 +60,7 @@ export default {
   ],
   generate: {
     // fallback: true,
-    devtools: true,
-    route: dynamicRoutes
+    routes: dynamicRoutes
   },
   vue: {
     config: {
